@@ -17,7 +17,7 @@ Here you will find the steps to get a functional project for testing, free use o
 2. Install setuptools `pip3 install setuptools`
 3. Install requeriments with `python3 setup.py install`
 
-At this point, you will have all required modules installed.
+At this point, you will have all the required modules installed.
 
 ### How to setup OBS Studio
 
