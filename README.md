@@ -5,21 +5,20 @@ Dynamic delay system for OBS Studio mainly aimed for streamers who want to chang
 
 # WIP
 
-<!--
-## Comenzando 🚀
+
+## How to deploy
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
 Mira **Deployment** para conocer como desplegar el proyecto.
 
 
-### Pre-requisitos 📋
+### How to setup
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+1. Install setuptools `pip3 install setuptools`
+2. Install requeriments with `python3 setup.py install`
 
-```
-Da un ejemplo
-```
+<!--
 
 ### Instalación 🔧
 
