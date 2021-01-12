@@ -31,7 +31,7 @@ At this point, you will have all the required modules installed.
         (Change the name next to --profile with the name of each profiles created in step 3)
 6. Open both shortcut. You will have two instances of OBS Studio running with different profiles. Maybe you will have an error caused by OBS Websockets, it doesnt matter.
 7. Go to `Tolls->WebSocket Server settings` in both obs and change the server port of each to the desired ones. Notice that you can't have the same port in both OBS Studio.
-8. Create all the scenes you need for your stream and add two more scenes. One is for adding Delay and the other one for removing the delay.
+8. Configure the OBS Studio as you need for your stream and add two more scenes. One is for adding Delay and the other one for removing the delay. Remember the name of those scenes.
 <!--
 
 ### Instalación 🔧
