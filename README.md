@@ -13,7 +13,7 @@ Here you have all the steps to get a functional project for testing, free use or
 
 ### How to setup python enviroment
 
-1. Install last version of Python 3 at <a href='https://www.python.org/downloads/'>https://www.python.org/downloads/</a>
+1. Install last version of <a href='https://www.python.org/downloads/'>Python 3</a>
 2. Install setuptools `pip3 install setuptools`
 3. Install requeriments with `python3 setup.py install`
 
