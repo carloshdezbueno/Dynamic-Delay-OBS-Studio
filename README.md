@@ -8,13 +8,16 @@ Dynamic delay system for OBS Studio mainly aimed for streamers who want to chang
 
 ## How to deploy
 
-Here you have all the steps to get a functional proyect for testing and free use.
+Here you have all the steps to get a functional project for testing, free use or improve it by yourself.
 
 
-### How to setup
+### How to setup python enviroment
 
-1. Install setuptools `pip3 install setuptools`
-2. Install requeriments with `python3 setup.py install`
+1. Install last version of Python 3 at <a href='https://www.python.org/downloads/'>https://www.python.org/downloads/</a>
+2. Install setuptools `pip3 install setuptools`
+3. Install requeriments with `python3 setup.py install`
+
+At this point, you will have all required modules installed.
 
 <!--
 
