@@ -8,9 +8,7 @@ Dynamic delay system for OBS Studio mainly aimed for streamers who want to chang
 
 ## How to deploy
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-
-Mira **Deployment** para conocer como desplegar el proyecto.
+Here you have all the steps to get a functional proyect for testing and free use.
 
 
 ### How to setup
