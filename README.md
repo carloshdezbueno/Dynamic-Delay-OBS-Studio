@@ -3,7 +3,7 @@
 Dynamic delay system for OBS Studio mainly aimed for streamers who want to change between 0 seconds delay and an among of delay to play competitive games without being stream sniped. 
 
 
-# WIP (It may last 2/3 days)
+# WIP (It may last 2/3 days to be fully documented)
 
 
 ## How to deploy
