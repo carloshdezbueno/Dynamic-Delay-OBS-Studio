@@ -19,6 +19,19 @@ Here you have all the steps to get a functional project for testing, free use or
 
 At this point, you will have all required modules installed.
 
+### How to setup OBS Studio
+
+1. Install <a href='https://obsproject.com/es/download'>OBS Studio</a>
+2. Install <a href='https://github.com/Palakis/obs-websocket/releases'>OBS websocket</a>
+3. Open OBS Studio and create two profiles, Make reference of which one is for recording and which one is for streaming
+4. Create two shortcut of OBS Studio in your desktop
+5. Enter properties of each shortcut and configure like this:
+    5.1. Add in the source field of one shortcut `"C:\Program Files\obs-studio\bin\64bit\obs64.exe" --multi --profile "recordingOBS"`
+    5.2. Add in the source field of the other shortcut`"C:\Program Files\obs-studio\bin\64bit\obs64.exe" --multi --profile "streamingOBS"`
+        (Change the name next to --profile with the name of each profiles created in step 3
+6. Open both shortcut. You will have two instances of OBS Studio running with different profiles. Maybe you will have an error caused by OBS Websockets, it doesnt matter
+7. Go to `Tolls->WebSocket Server settings` in both obs and change the server port of each to the desired ones. Notice that you can't have the same port in both OBS Studio
+
 <!--
 
 ### Instalación 🔧
