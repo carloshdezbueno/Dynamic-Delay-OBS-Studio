@@ -8,7 +8,7 @@ Dynamic delay system for OBS Studio mainly aimed for streamers who want to chang
 
 ## How to deploy
 
-Here you have all the steps to get a functional project for testing, free use or improve it by yourself.
+Here you will find the steps to get a functional project for testing, free use or improve it by yourself.
 
 
 ### How to setup python enviroment
