@@ -11,11 +11,8 @@ def addDelay(record, stream, transition = 'Transition', delayScene = 'Delay', de
     
     print("Adding delay")
 
-
-
     #Start recording with recording OBS
     record.call(obswebsocket.requests.StartRecording())
-    
 
     #Mute Streaming OBS !!!Change names of sound sources
     stream.call(obswebsocket.requests.SetVolume(AUDIO_SOURCE_1, 0.0))
