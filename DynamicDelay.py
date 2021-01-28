@@ -4,6 +4,7 @@ import obswebsocket, obswebsocket.requests
 import time as t
 from multiprocessing import Process, Pipe, Queue
 import PySimpleGUI as sg
+from config import RECORDING_OBS_IP, STREAMING_OBS_IP, RECORDING_OBS_PORT, STREAMING_OBS_PORT, DELAY_SCENE, REMOVE_DELAY_SCENE_TRANSITION, ADD_DELAY_SCENE_TRANSITION, AUDIO_SOURCE_1, AUDIO_SOURCE_2, AUDIO_SOURCE_3
 
 def addDelay(record, stream, transition = 'Transition', delayScene = 'Delay', delay = 30):
     """Add delay function"""
@@ -17,9 +18,9 @@ def addDelay(record, stream, transition = 'Transition', delayScene = 'Delay', de
     
 
     #Mute Streaming OBS !!!Change names of sound sources
-    stream.call(obswebsocket.requests.SetVolume('Cascos', 0.0))
-    stream.call(obswebsocket.requests.SetVolume('Altavoces', 0.0))
-    stream.call(obswebsocket.requests.SetVolume('Mic/Aux', 0.0))
+    stream.call(obswebsocket.requests.SetVolume(AUDIO_SOURCE_1, 0.0))
+    stream.call(obswebsocket.requests.SetVolume(AUDIO_SOURCE_2, 0.0))
+    stream.call(obswebsocket.requests.SetVolume(AUDIO_SOURCE_3, 0.0))
 
     stream.call(obswebsocket.requests.SetCurrentScene(transition))
 
@@ -48,9 +49,9 @@ def removeDelay(record, stream, transition = 'removeDelayTransition'):
     t.sleep(0.3)
 
     #Unmute audio from Streaming OBS !!!Change names of sound sources
-    stream.call(obswebsocket.requests.SetVolume('Cascos', 1.0))
-    stream.call(obswebsocket.requests.SetVolume('Altavoces', 1.0))
-    stream.call(obswebsocket.requests.SetVolume('Mic/Aux', 1.0))
+    stream.call(obswebsocket.requests.SetVolume(AUDIO_SOURCE_1, 1.0))
+    stream.call(obswebsocket.requests.SetVolume(AUDIO_SOURCE_2, 1.0))
+    stream.call(obswebsocket.requests.SetVolume(AUDIO_SOURCE_3, 1.0))
 
     escenaActual = record.call(obswebsocket.requests.GetCurrentScene()).getName()
 
@@ -65,16 +66,16 @@ def sceneSyncronizer(transition = 'Transition', delayScene = 'Delay', removeDela
     banned = [transition, delayScene, removeDelayTransition]
 
     #OBS websocket recording
-    record = obswebsocket.obsws("localhost", 4444, "secret")
+    record = obswebsocket.obsws(RECORDING_OBS_IP, RECORDING_OBS_PORT, "secret")
     record.connect()
 
     #OBS websocket stream
-    stream = obswebsocket.obsws("localhost", 4445, "secret")
+    stream = obswebsocket.obsws(STREAMING_OBS_IP, STREAMING_OBS_PORT, "secret")
     stream.connect()
 
-    transition = 'Transition'
-    delayScene = 'Delay'
-    removeDelayTransition = 'removeDelayTransition'
+    transition = ADD_DELAY_SCENE_TRANSITION
+    delayScene = DELAY_SCENE
+    removeDelayTransition = REMOVE_DELAY_SCENE_TRANSITION
 
     banned = [transition, delayScene, removeDelayTransition]
 
@@ -92,11 +93,11 @@ def eventHandler(p_output, queue):
     """Used to comunicate with the different app threads"""
     
     #OBS websocket recording
-    record = obswebsocket.obsws("localhost", 4444, "secret")
+    record = obswebsocket.obsws(RECORDING_OBS_IP, RECORDING_OBS_PORT, "secret")
     record.connect()
 
     #OBS websocket stream
-    stream = obswebsocket.obsws("localhost", 4445, "secret")
+    stream = obswebsocket.obsws(STREAMING_OBS_IP, STREAMING_OBS_PORT, "secret")
     stream.connect()
 
     withDelay = False
@@ -106,23 +107,23 @@ def eventHandler(p_output, queue):
 
         if event == 'Exit' or event is None:
             if withDelay:
-                removeDelay(record, stream, 'removeDelayTransition')
+                removeDelay(record, stream, REMOVE_DELAY_SCENE_TRANSITION)
             break
         if event == 'addDelay':
 
             values = p_output.recv()
             try:
                 if values == '':
-                    addDelay(record, stream, 'Transition', 'Delay')
+                    addDelay(record, stream, ADD_DELAY_SCENE_TRANSITION, DELAY_SCENE)
                 else:
                     delay = int(values)
-                    addDelay(record, stream, 'Transition', 'Delay', delay)
+                    addDelay(record, stream, ADD_DELAY_SCENE_TRANSITION, DELAY_SCENE, delay)
             except:
                 sg.Popup('The delay must be an integer')
             withDelay = True
             
         if event == 'removeDelay':
-            removeDelay(record, stream, 'removeDelayTransition')
+            removeDelay(record, stream, REMOVE_DELAY_SCENE_TRANSITION)
             withDelay = False
         if event == 'cancel':
             break

@@ -3,25 +3,24 @@ import logging
 
 # author and license information
 AUTHOR = 'Carlos Hernandez-Bueno Regojo'
-AUTHOR_EMAIL = 'chernandezre.inf'
+AUTHOR_EMAIL = 'carlos.hdezbueno@gmail.com'
 LICENSE = 'see license.md file for details'
 
 # log configuration
 DEBUG = True
 LOG_LEVEL = logging.DEBUG
 
-# flask configuration
-PORT = 8080
-HOST = '0.0.0.0'  # bind to all interfaces
-TITLE = 'flask-backend-server'
-VERSION = '1.0'
-APP_NAME = 'flask-backend-server'
-DESCRIPTION = 'Backend server for TFG'
+# App configuration
+RECORDING_OBS_IP = 'localhost'
+STREAMING_OBS_IP = 'localhost'
 
-# SQLUtils configuration
-MONGO_URI = '<MongoDBUri>'
-MONGO_DB = 'datosSensores'
-MONGO_COLLECTION = 'sensores'
+RECORDING_OBS_PORT = 4444
+STREAMING_OBS_PORT = 4445
 
-# application directory
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+DELAY_SCENE = 'Delay'
+REMOVE_DELAY_SCENE_TRANSITION = 'removeDelayTransition'
+ADD_DELAY_SCENE_TRANSITION = 'Transition'
+
+AUDIO_SOURCE_1 = 'Cascos'
+AUDIO_SOURCE_2 = 'Altavoces'
+AUDIO_SOURCE_3 = 'Mic/Aux'
